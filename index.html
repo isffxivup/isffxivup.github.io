@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang=zh-cn>
+    
+    <head>
+        <title>FFXIV服务器详细状态</title>
+        <link rel=stylesheet href=./static/style.css>
+        <meta name=viewport content="width=675">
+        <meta name=Description content="报告最终幻想14(FFXIV)的服务器详细情况">
+        <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    </head>
+    
+    <body>
+        <ul id=nav>
+            <li class=sitename>
+                <h1>Is FFXIV Up</h1>
+                <li>
+                    <a id=Status>未与服务器建立连接</a>
+        </ul>
+        <div class=outer>
+            <div class=center>
+                <div class="region detailed two">
+                    <div class="regiontitle title">全局服务器</div>
+                    <div class=dc>
+                        <div id=PatchServer class=realm>
+                            <span class=realmname>补丁服务器
+                            <div id=PatchID class="circle warning"></div>
+                        </div>
+                    </div>
+                    <div class=dc>
+                        <div id=VersionText class=realm>
+                            <span class=realmname>当前版本:
+                        </div>
+                        <div id=VersionInfo class=realm>
+                            <span class=realmname>
+                        </div>
+                    </div>
+                </div>
+                <div class="region detailed three">
+                    <div class="regiontitle title">中国区</div>
+                    <div class=dc>
+                        <div id=Luxingniao class="title online">陆行鸟</div>
+                        <div id=LuxingniaoLobby class=realm>
+                            <span class=realmname>陆行鸟大厅服务器
+                                <span class="tooltip">ffxivlobby01.ff14.sdo.com</span>
+                            </span>
+                            <div id=DC01 class="circle warning"></div>
+                        </div>
+                        <div id=w1s1i class=realm>
+                            <span class=realmname>109.244.5.36
+                            <div id=W1S01 class="circle warning"></div>
+                        </div>
+                        <div id=w1s2i class=realm>
+                            <span class=realmname>109.244.5.37
+                            <div id=W1S02 class="circle warning"></div>
+                        </div>
+                        <div id=w1s3i class=realm>
+                            <span class=realmname>109.244.5.38
+                            <div id=W1S03 class="circle warning"></div>
+                        </div>
+                        <div id=w1s4i class=realm>
+                            <span class=realmname>109.244.5.39
+                            <div id=W1S04 class="circle warning"></div>
+                        </div>
+                        <div id=w1s5i class=realm>
+                            <span class=realmname>109.244.5.40
+                            <div id=W1S05 class="circle warning"></div>
+                        </div>
+                        <div id=w1s6i class=realm>
+                            <span class=realmname>109.244.5.41
+                            <div id=W1S06 class="circle warning"></div>
+                        </div>
+                        <div id=w1s7i class=realm>
+                            <span class=realmname>109.244.5.42
+                            <div id=W1S07 class="circle warning"></div>
+                        </div>
+                        <div id=w1s8i class=realm>
+                            <span class=realmname>109.244.5.43
+                            <div id=W1S08 class="circle warning"></div>
+                        </div>
+                        <div id=w1s9i class=realm>
+                            <span class=realmname>109.244.5.44
+                            <div id=W1S09 class="circle warning"></div>
+                        </div>
+                        <div id=w1s10i class=realm>
+                            <span class=realmname>109.244.5.45
+                            <div id=W1S10 class="circle warning"></div>
+                        </div>
+                        <div id=w1s11i class=realm>
+                            <span class=realmname>109.244.5.46
+                            <div id=W1S11 class="circle warning"></div>
+                        </div>
+                        <div id=w1s12i class=realm>
+                            <span class=realmname>109.244.5.47
+                            <div id=W1S12 class="circle warning"></div>
+                        </div>
+                        <div id=w1s13i class=realm>
+                            <span class=realmname>109.244.5.48
+                            <div id=W1S13 class="circle warning"></div>
+                        </div>
+                        <div id=w1s14i class=realm>
+                            <span class=realmname>109.244.5.49
+                            <div id=W1S14 class="circle warning"></div>
+                        </div>
+                        <div id=w1s15i class=realm>
+                            <span class=realmname>109.244.5.50
+                            <div id=W1S15 class="circle warning"></div>
+                        </div>
+                    </div>
+                    <div class=dc>
+                        <div id=Moguli class="title online">莫古力</div>
+                        <div id=MoguliLobby class=realm>
+                            <span class=realmname>莫古力大厅服务器
+                                <span class="tooltip">ffxivlobby05.ff14.sdo.com</span>
+                            </span>
+                            <div id=DC02 class="circle warning"></div>
+                        </div>
+                        <div id=w2s1i class=realm>
+                            <span class=realmname>109.244.5.162
+                            <div id=W2S01 class="circle warning"></div>
+                        </div>
+                        <div id=w2s2i class=realm>
+                            <span class=realmname>109.244.5.163
+                            <div id=W2S02 class="circle warning"></div>
+                        </div>
+                        <div id=w2s3i class=realm>
+                            <span class=realmname>109.244.5.164
+                            <div id=W2S03 class="circle warning"></div>
+                        </div>
+                        <div id=w2s4i class=realm>
+                            <span class=realmname>109.244.5.165
+                            <div id=W2S04 class="circle warning"></div>
+                        </div>
+                        <div id=w2s5i class=realm>
+                            <span class=realmname>109.244.5.166
+                            <div id=W2S05 class="circle warning"></div>
+                        </div>
+                        <div id=w2s6i class=realm>
+                            <span class=realmname>109.244.5.167
+                            <div id=W2S06 class="circle warning"></div>
+                        </div>
+                        <div id=w2s7i class=realm>
+                            <span class=realmname>109.244.5.168
+                            <div id=W2S07 class="circle warning"></div>
+                        </div>
+                        <div id=w2s8i class=realm>
+                            <span class=realmname>109.244.5.169
+                            <div id=W2S08 class="circle warning"></div>
+                        </div>
+                        <div id=w2s9i class=realm>
+                            <span class=realmname>109.244.5.170
+                            <div id=W2S09 class="circle warning"></div>
+                        </div>
+                    </div>
+                    <div class=dc>
+                        <div id=Maoxiaopang class="title online">猫小胖</div>
+                        <div id=MaoxiaopangLobby class=realm>
+                            <span class=realmname>猫小胖大厅服务器
+                                <span class="tooltip">ffxivlobby07.ff14.sdo.com</span>
+                            </span>
+                            <div id=DC03 class="circle warning"></div>
+                        </div>
+                        <div id=w3s1i class=realm>
+                            <span class=realmname>116.211.8.34
+                            <div id=W3S01 class="circle warning"></div>
+                        </div>
+                        <div id=w3s2i class=realm>
+                            <span class=realmname>116.211.8.35
+                            <div id=W3S02 class="circle warning"></div>
+                        </div>
+                        <div id=w3s3i class=realm>
+                            <span class=realmname>116.211.8.36
+                            <div id=W3S03 class="circle warning"></div>
+                        </div>
+                        <div id=w3s4i class=realm>
+                            <span class=realmname>116.211.8.37
+                            <div id=W3S04 class="circle warning"></div>
+                        </div>
+                        <div id=w3s5i class=realm>
+                            <span class=realmname>116.211.8.38
+                            <div id=W3S05 class="circle warning"></div>
+                        </div>
+                        <div id=w3s6i class=realm>
+                            <span class=realmname>116.211.8.39
+                            <div id=W3S06 class="circle warning"></div>
+                        </div>
+                        <div id=w3s7i class=realm>
+                            <span class=realmname>116.211.8.40
+                            <div id=W3S07 class="circle warning"></div>
+                        </div>
+                        <div id=w3s8i class=realm>
+                            <span class=realmname>116.211.8.41
+                            <div id=W3S08 class="circle warning"></div>
+                        </div>
+                        <div id=w3s9i class=realm>
+                            <span class=realmname>116.211.8.42
+                            <div id=W3S09 class="circle warning"></div>
+                        </div>
+                        <div id=w3s10i class=realm>
+                            <span class=realmname>116.211.8.43
+                            <div id=W3S10 class="circle warning"></div>
+                        </div>
+                        <div id=w3s11i class=realm>
+                            <span class=realmname>116.211.8.44
+                            <div id=W3S11 class="circle warning"></div>
+                        </div>
+                        <div id=w3s12i class=realm>
+                            <span class=realmname>116.211.8.45
+                            <div id=W3S12 class="circle warning"></div>
+                        </div>
+                        <div id=w3s13i class=realm>
+                            <span class=realmname>116.211.8.46
+                            <div id=W3S13 class="circle warning"></div>
+                        </div>
+                        <div id=w3s14i class=realm>
+                            <span class=realmname>116.211.8.47
+                            <div id=W3S14 class="circle warning"></div>
+                        </div>
+                        <div id=w3s15i class=realm>
+                            <span class=realmname>116.211.8.48
+                            <div id=W3S15 class="circle warning"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function() {
+                if (!window.WebSocket) {
+                    if (window.MozWebSocket) {
+                        window.WebSocket = window.MozWebSocket;
+                    } else {
+                        alert("你的浏览器不支持Websocket");
+                    }
+                }
+                
+                ws = new WebSocket('ws://127.0.0.1:8000/websocket/');
+
+                ws.onopen = function(evt) {
+                    document.getElementById("Status").innerHTML = "已与服务器建立连接";
+                }   
+
+                ws.onmessage = function(evt) {
+                    var r = evt.data;
+
+                    var pos = r.lastIndexOf("PA");
+                    if (pos != -1) {
+                        var pos = r.lastIndexOf("PA011");
+                        if (pos != -1){
+                            document.getElementById("PatchID").setAttribute("class","circle");
+                            document.getElementById("VersionInfo").innerHTML = "<span class=realmname>" + r.slice(5,25)
+                        }
+                        else{
+                            document.getElementById("PatchID").setAttribute("class","circle offline");
+                            document.getElementById("VersionInfo").innerHTML = "<span class=realmname>"
+                        }
+                    }
+
+                    var pos = r.lastIndexOf("DC");
+                    if (pos != -1){
+                        if (r.slice(5,7) == "01"){
+                            document.getElementById(r.slice(0,4)).setAttribute("class","circle");
+                        }
+                        else{
+                            document.getElementById(r.slice(0,4)).setAttribute("class","circle offline");
+                        }
+                    }
+
+                    var pos = r.lastIndexOf("SV");
+                    if (pos != -1){
+                        if (r.slice(8,10) == "01"){
+                            document.getElementById(r.slice(2,7)).setAttribute("class","circle");
+                        }
+                        else{
+                            document.getElementById(r.slice(2,7)).setAttribute("class","circle offline");
+                        }
+                    }
+                }
+
+                ws.onclose = function(evt) {
+                    document.getElementById("Status").innerHTML = "与服务器连接丢失";
+                    location.reload() 
+                }
+
+            });
+        </script>
+    </body>
+
+</html>

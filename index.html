@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang=zh-cn>
     
@@ -352,6 +353,12 @@
 
 	            xmlhttp.onreadystatechange=function()
 	            {
+                    if (xmlhttp.status==403 || xmlhttp.readyState==0)
+                    {
+                        document.getElementById("Status").innerHTML = "未与服务器建立连接";
+                        location.reload();
+                    }
+
 		            if (xmlhttp.readyState==4 && xmlhttp.status==200)
 		            {
                         document.getElementById("Status").innerHTML = "已与服务器建立连接";
@@ -427,11 +434,6 @@
                             }
                         }
 		            }
-                    if (xmlhttp.readyState==0 || xmlhttp.status==404)
-                    {
-                        document.getElementById("Status").innerHTML = "未与服务器建立连接";
-                        location.reload();
-                    }
 	            }
                 
 	            xmlhttp.open("GET","https://ff.inn.moe:4433/ffstatus/",true);

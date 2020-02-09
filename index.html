@@ -4,7 +4,7 @@
     <head>
         <title>FFXIV服务器详细状态</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <link rel=stylesheet href="/static/style.css">
+        <link rel=stylesheet href=./static/style.css>
         <meta name=viewport content="width=675">
         <meta name=Description content="报告最终幻想14(FFXIV)的服务器详细情况">
         <script src="https://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
@@ -14,8 +14,7 @@
         <ul id=nav>
             <li class=sitename>
                 <h1>Is FFXIV Up</h1>
-                <li>
-                    <a id=Status>未与服务器建立连接</a>
+                <li><a id=Status>未与服务器建立连接</a></li>
         </ul>
         <div class=outer>
             <div class=center>
@@ -226,64 +225,76 @@
         </div>
 
         <script>
-            $(document).ready(function() {
-                if (!window.WebSocket) {
-                    if (window.MozWebSocket) {
-                        window.WebSocket = window.MozWebSocket;
-                    } else {
-                        alert("你的浏览器不支持Websocket");
+            var processID = self.setInterval("loadXMLDoc()",500);
+            function loadXMLDoc()
+            {
+	            var xmlhttp;
+
+	            xmlhttp=new XMLHttpRequest();
+
+	            xmlhttp.onreadystatechange=function()
+	            {
+		            if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		            {
+                        document.getElementById("Status").innerHTML = "已与服务器建立连接";
+                        var r = xmlhttp.responseText;
+                        var data = r.split("\n");
+                        for (var i=0;i<data.length;i++)
+                        { 
+                            var temp = data[i];
+
+                            var pos = temp.lastIndexOf("PA");
+                            if (pos != -1)
+                            {
+                                var pos = r.lastIndexOf("PA011");
+                                if (pos != -1)
+                                {
+                                    document.getElementById("PatchID").setAttribute("class","circle");
+                                    document.getElementById("VersionInfo").innerHTML = "<span class=realmname>" + r.slice(5,25);
+                                }
+                                else{
+                                    document.getElementById("PatchID").setAttribute("class","circle offline");
+                                    document.getElementById("VersionInfo").innerHTML = "<span class=realmname>";
+                                }
+                            }
+
+                            var pos = temp.lastIndexOf("DC");
+                            if (pos != -1)
+                            {
+                                if (temp.slice(5,7) == "01")
+                                {
+                                    document.getElementById(temp.slice(0,4)).setAttribute("class","circle");
+                                }
+                                else
+                                {
+                                    document.getElementById(temp.slice(0,4)).setAttribute("class","circle offline");
+                                }
+                            }
+
+                            var pos = temp.lastIndexOf("SV");
+                            if (pos != -1)
+                            {
+                                if (temp.slice(8,10) == "01")
+                                {
+                                    document.getElementById(temp.slice(2,7)).setAttribute("class","circle");
+                                }
+                                else
+                                {
+                                    document.getElementById(temp.slice(2,7)).setAttribute("class","circle offline");
+                                }
+                            }
+                        }
+		            }
+                    if (xmlhttp.readyState==0 || xmlhttp.status==404)
+                    {
+                        document.getElementById("Status").innerHTML = "未与服务器建立连接";
+                        location.reload();
                     }
-                }
+	            }
                 
-                ws = new WebSocket('ws://118.24.49.168:8000/websocket/');
-
-                ws.onopen = function(evt) {
-                    document.getElementById("Status").innerHTML = "已与服务器建立连接";
-                }   
-
-                ws.onmessage = function(evt) {
-                    var r = evt.data;
-
-                    var pos = r.lastIndexOf("PA");
-                    if (pos != -1) {
-                        var pos = r.lastIndexOf("PA011");
-                        if (pos != -1){
-                            document.getElementById("PatchID").setAttribute("class","circle");
-                            document.getElementById("VersionInfo").innerHTML = "<span class=realmname>" + r.slice(5,25)
-                        }
-                        else{
-                            document.getElementById("PatchID").setAttribute("class","circle offline");
-                            document.getElementById("VersionInfo").innerHTML = "<span class=realmname>"
-                        }
-                    }
-
-                    var pos = r.lastIndexOf("DC");
-                    if (pos != -1){
-                        if (r.slice(5,7) == "01"){
-                            document.getElementById(r.slice(0,4)).setAttribute("class","circle");
-                        }
-                        else{
-                            document.getElementById(r.slice(0,4)).setAttribute("class","circle offline");
-                        }
-                    }
-
-                    var pos = r.lastIndexOf("SV");
-                    if (pos != -1){
-                        if (r.slice(8,10) == "01"){
-                            document.getElementById(r.slice(2,7)).setAttribute("class","circle");
-                        }
-                        else{
-                            document.getElementById(r.slice(2,7)).setAttribute("class","circle offline");
-                        }
-                    }
-                }
-
-                ws.onclose = function(evt) {
-                    document.getElementById("Status").innerHTML = "与服务器连接丢失";
-                    location.reload() 
-                }
-
-            });
+	            xmlhttp.open("GET","http://118.24.49.168/ffstatus",true);
+	            xmlhttp.send();
+            }
         </script>
     </body>
 
